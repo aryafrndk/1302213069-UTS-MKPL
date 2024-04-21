@@ -20,8 +20,8 @@ public class TaxFunction {
 
 	public static int calculateTax(int monthlySalary, int otherMonthlyIncome, int numberOfMonthWorking, int deductible, boolean isMarried, int numberOfChildren) {
         if (numberOfMonthWorking > 12) {
-			System.err.println("More than 12 month working per year");
-		}
+            throw new IllegalArgumentException("Number of months working cannot exceed 12");
+        }
 
         int totalMonthlyIncome = (monthlySalary + otherMonthlyIncome) * numberOfMonthWorking;
         int taxFreeIncome = calculateTaxFreeIncome(isMarried, numberOfChildren);
